@@ -83,11 +83,9 @@
     ga('create', '[[.GoogleAnalyticsId]]', 'auto');
     [[if .User.Id]]
     ga('set', '&uid', '[[.User.Id]]');
-    [[end]]
-    [[if .User.Id]]
     ga('set', 'dimension1', '[[.User.Id]]');
     [[end]]
-    ga('send', 'pageview');
+    ga('send', 'pageview', '[[.User.Id]]');
 </script>
 [[end]]
 
