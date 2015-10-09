@@ -49,6 +49,9 @@
     settings: [[.Settings]],
     };
 
+    // Custom options
+    window.grafanaBootData.settings.window_title_prefix = 'Pygmalios Analytics | ';
+
     require(['app/app'], function (app) {
         app.boot();
     })
