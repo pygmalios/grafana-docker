@@ -6,13 +6,14 @@ define([
 
         coreModule.controller('LoadDashboardCtrl', function($scope, $routeParams, dashboardLoaderSrv, backendSrv) {
 
+            console.log($routeParams);
             if (!$routeParams.slug) {
-
-                angular.element(document.body).injector()
-                    .get('backendSrv')
+                backendSrv
                     .search({ query: '', tag: [], starred: false })
                     .then(function(result) {
+                        console.log(result);
                         if (result[0]) {
+                            console.log(result[0], result[0].uri.split('/'));
                             dashboardLoaderSrv.loadDashboard(result[0].uri.split('/')[0], result[0].uri.split('/')[1])
                                 .then(function(result) {
                                     $scope.initDashboard(result, $scope);
@@ -26,14 +27,12 @@ define([
                             });
                         }
                     });
-
-                return;
             }
-
-            dashboardLoaderSrv.loadDashboard($routeParams.type, $routeParams.slug).then(function(result) {
-                $scope.initDashboard(result, $scope);
-            });
-
+            else {
+                dashboardLoaderSrv.loadDashboard($routeParams.type, $routeParams.slug).then(function(result) {
+                    $scope.initDashboard(result, $scope);
+                });
+            }
         });
 
         coreModule.controller('DashFromImportCtrl', function($scope, $location, alertSrv) {
