@@ -1,13 +1,13 @@
-<div ng-controller="SearchCtrl" ng-init="init()" class="sidemenu sidemenu-main">
+<div ng-controller="SearchCtrl" ng-init="init()">
 
 	<ul class="sidemenu sidemenu-small" style="margin-top:50px">
 		<li ng-repeat="row in results">
-			<a class="sidemenu-item"
+			<a class="sidemenu-item dashboardmenu-item"
 			   ng-class="{'selected': $index == selectedIndex}"
 			   ng-href="{{row.url}}"
 			>
 				<span class="search-result-link">
-					<span class="sidemenu-item-text">{{row.title}}</span>
+					<span class="sidemenu-item-text">{{row.title.replace(/.*[ ]/, '')}}</span>
 				</span>
 			</a>
 		</li>
