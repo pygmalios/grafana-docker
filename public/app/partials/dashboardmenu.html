@@ -1,0 +1,29 @@
+<div ng-controller="SearchCtrl" ng-init="init()" class="search-box">
+
+    <div class="search-field-wrapper">
+		<span style="position: relative;">
+			<input  type="text" placeholder="Find dashboards by name" give-focus="giveSearchFocus" tabindex="1"
+                    ng-keydown="keyDown($event)" ng-model="query.query" ng-model-options="{ debounce: 500 }" spellcheck='false' ng-change="search()" />
+		</span>
+    </div>
+
+    <div class="search-results-container">
+        <h6 ng-hide="results.length">No dashboards matching your query were found.</h6>
+
+        <a class="search-item pointer search-item-{{row.type}}" bindonce ng-repeat="row in results"
+           ng-class="{'selected': $index == selectedIndex}" ng-href="{{row.url}}">
+
+			<span class="search-result-tags">
+				<span ng-click="filterByTag(tag, $event)" ng-repeat="tag in row.tags" tag-color-from-name="tag"  class="label label-tag">
+					{{tag}}
+				</span>
+				<i class="fa" ng-class="{'fa-star': row.isStarred, 'fa-star-o': !row.isStarred}"></i>
+			</span>
+
+			<span class="search-result-link">
+				<i class="fa search-result-icon"></i>
+				<span bo-text="row.title"></span>
+			</span>
+        </a>
+    </div>
+</div>

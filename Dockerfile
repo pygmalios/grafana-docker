@@ -20,6 +20,8 @@ ADD public/pygmalios/params.js /usr/share/grafana/public/pygmalios/params.js
 
 ADD public/dashboards/home.json /usr/share/grafana/public/dashboards/home.json
 
+ADD public/partials/dashboardmenu.html /usr/share/grafana/public/partials/dashboardmenu.html
+
 ADD public/img/fav16.png /usr/share/grafana/public/img/fav16.png
 ADD public/img/fav32.png /usr/share/grafana/public/img/fav32.png
 ADD public/img/fav_dark_16.png /usr/share/grafana/public/img/fav_dark_16.png
