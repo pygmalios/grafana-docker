@@ -18,7 +18,7 @@
           "editable": true,
           "type": "text",
           "mode": "html",
-          "content": "<div class=\"text-center\" style=\"padding: 10px 0 20px 0\">\n<img src=\"img/logo_transparent_200x.png\" width=\"170px\"> \n</div>\n\n<script>angular.element(document.body).injector().get('backendSrv').search({ query: '', tag: [], starred: false }).then(function(result) { console.log(result); });</script>",
+          "content": "<div class=\"text-center\" style=\"padding: 10px 0 20px 0\">\n<img src=\"img/logo_transparent_200x.png\" width=\"170px\"> \n</div>\n\n<script>angular.element(document.body).injector().get('backendSrv').search({ query: '', tag: [], starred: false }).then(function(result) { if(result[0]) { window.location = 'dashboard/' + result[0].uri } });</script>",
           "style": {},
           "title": ""
         }
