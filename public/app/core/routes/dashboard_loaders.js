@@ -6,10 +6,11 @@ define([
 
         coreModule.controller('LoadDashboardCtrl', function($scope, $routeParams, dashboardLoaderSrv, backendSrv) {
 
-            console.log($routeParams);
+            console.log('LoadDashboardCtrl');
+            console.log('$routeParams', $routeParams);
             if (!$routeParams.slug) {
                 backendSrv
-                    .search({ query: '', tag: [], starred: false })
+                    .search({ query: '', tag: [] })
                     .then(function(result) {
                         console.log(result);
                         if (result[0]) {
