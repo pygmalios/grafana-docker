@@ -23,25 +23,6 @@
           "title": ""
         }
       ]
-    },
-    {
-      "height": "610px",
-      "panels": [
-        {
-          "id": 2,
-          "span": 6,
-          "type": "dashlist",
-          "mode": "starred",
-          "title": "Starred dashboards"
-        },
-        {
-          "id": 3,
-          "span": 6,
-          "type": "dashlist",
-          "mode": "search",
-          "title": "Dashboards"
-        }
-      ]
     }
   ],
   "nav": [
