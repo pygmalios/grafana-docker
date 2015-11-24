@@ -18,7 +18,7 @@ ADD public/views/index.html /usr/share/grafana/public/views/index.html
 ADD public/pygmalios/operation.js /usr/share/grafana/public/pygmalios/operation.js
 ADD public/pygmalios/params.js /usr/share/grafana/public/pygmalios/params.js
 
-ADD public/dashboards/home.json /usr/share/grafana/public/dashboards/home.json
+ADD public/app/core/routes/dashboard_loaders.js /usr/share/grafana/public/app/core/routes/dashboard_loaders.js
 
 ADD public/app/partials/dashboardmenu.html /usr/share/grafana/public/app/partials/dashboardmenu.html
 
