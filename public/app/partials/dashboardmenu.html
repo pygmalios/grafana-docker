@@ -7,7 +7,7 @@
 			   ng-href="{{row.url}}"
 			>
 				<span class="search-result-link">
-					<span class="sidemenu-item-text">{{(row.title).replace(/.*[ ]/, '')}}</span>
+					<span class="sidemenu-item-text" ng-bind="(row.title).replace(/.*[ ]/, '')"></span>
 				</span>
 			</a>
 		</li>
