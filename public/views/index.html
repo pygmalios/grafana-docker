@@ -48,7 +48,9 @@
 <div class="sidemenu-canvas">
 
     <aside class="sidemenu-wrapper" ng-if="contextSrv.sidemenu">
+        [[if .User.isGrafanaAdmin]]
         <div ng-include="'app/partials/sidemenu.html'"></div>
+        [[end]]
         <div ng-include="'app/partials/dashboardmenu.html'"></div>
     </aside>
 
