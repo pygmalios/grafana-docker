@@ -1,10 +1,10 @@
-<div ng-controller="SearchCtrl" ng-init="init()">
+<div ng-controller="SearchCtrl as dashboard" ng-init="init()">
 
 	<ul class="sidemenu sidemenu-small" style="margin-top:25px">
-		<li ng-repeat="row in results" ng-hide="row.type == 'dash-home'" class="dashboardmenu-item-wrapper" ng-class="{'selected': $index == selectedDashboardIndex}">
+		<li ng-repeat="row in dashboard.results" ng-hide="row.type == 'dash-home'" class="dashboardmenu-item-wrapper" ng-class="{'selected': $index == dashboard.selectedDashboardIndex}">
 			<a class="sidemenu-item dashboardmenu-item"
 			   ng-href="{{row.url}}"
-			   ng-click="selectedDashboardIndex=$index"
+			   ng-click="dashboard.selectedDashboardIndex=$index"
 			>
 				<span class="search-result-link">
 					<span class="sidemenu-item-text">{{row.title}}</span>
