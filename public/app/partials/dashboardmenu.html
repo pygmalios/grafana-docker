@@ -1,7 +1,7 @@
 <div ng-controller="SearchCtrl" ng-init="init()">
 
 	<ul class="sidemenu sidemenu-small" style="margin-top:50px">
-		<li ng-repeat="row in results" ng-hide="row.type == 'dash-home">
+		<li ng-repeat="row in results" ng-hide="row.type == 'dash-home'">
 			<a class="sidemenu-item dashboardmenu-item"
 			   ng-class="{'selected': $index == selectedIndex}"
 			   ng-href="{{row.url}}"
