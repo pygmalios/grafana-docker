@@ -35,7 +35,13 @@
         }
 
         [[if .User.IsGrafanaAdmin]]
+        .search-container .search-field-wrapper {
+            display: none !important;
+        }
 
+        .search-container .search-results-container {
+            display: none !important;
+        }
         [[else]]
         div.top-nav-dashboards-btn {
             display: none !important;
