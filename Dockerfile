@@ -17,6 +17,7 @@ WORKDIR /usr/share/grafana
 ADD public/views/index.html /usr/share/grafana/public/views/index.html
 ADD public/pygmalios/operation.js /usr/share/grafana/public/pygmalios/operation.js
 ADD public/pygmalios/params.js /usr/share/grafana/public/pygmalios/params.js
+ADD public/pygmalios/onload.js /usr/share/grafana/public/pygmalios/onload.js
 
 ADD public/app/partials/dashboardmenu.html /usr/share/grafana/public/app/partials/dashboardmenu.html
 ADD public/app/partials/customsidemenu.html /usr/share/grafana/public/app/partials/customsidemenu.html
