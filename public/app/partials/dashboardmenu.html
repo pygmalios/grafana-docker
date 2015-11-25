@@ -1,4 +1,4 @@
-<div ng-controller="SearchCtrl as dashboard" ng-init="init()">
+<div ng-controller="SearchCtrl as dashboard" ng-init="dashboard.init()">
 
 	<ul class="sidemenu sidemenu-small" style="margin-top:25px">
 		<li ng-repeat="row in dashboard.results" ng-hide="row.type == 'dash-home'" class="dashboardmenu-item-wrapper" ng-class="{'selected': $index == dashboard.selectedDashboardIndex}">
