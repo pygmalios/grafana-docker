@@ -34,9 +34,13 @@
             border-right: 1px solid #eef;
         }
 
+        [[if .User.IsGrafanaAdmin]]
+
+        [[else]]
         div.top-nav-dashboards-btn {
             display: none !important;
         }
+        [[end]]
 
         .dashboardmenu-item-wrapper.selected {
             background: #F1F2FB !important;
@@ -68,7 +72,11 @@
 <div class="sidemenu-canvas">
 
     <aside class="sidemenu-wrapper" ng-if="contextSrv.sidemenu">
+        [[if .User.IsGrafanaAdmin]]
+        <div ng-include="'app/partials/sidemenu.html'"></div>
+        [[else]]
         <div ng-include="'app/partials/customsidemenu.html'"></div>
+        [[end]]
         <div ng-include="'app/partials/dashboardmenu.html'"></div>
     </aside>
 
@@ -92,7 +100,7 @@
 <script>
     window.grafanaBootData = {
         user:[[.User]],
-    settings: [[.Settings]],
+        settings: [[.Settings]]
     };
 
     // Custom options
