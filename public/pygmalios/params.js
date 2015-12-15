@@ -1,9 +1,16 @@
 (function(){
 
     var parseQuery = function (querystring) {
-        querystring = querystring.indexOf('?') < 0 ? querystring + '?' : querystring;
-        querystring = querystring.substring(querystring.indexOf('?')+1).split('&');
+        querystring = querystring.indexOf('?') < 0 ? '?' + querystring : querystring;
+        querystring = querystring.substring(querystring.indexOf('?')+1);
+
+        if (querystring.length == 0) {
+            return {};
+        }
+
+        querystring = querystring.split('&');
         var params = {}, pair, d = decodeURIComponent;
+
         for (var i = querystring.length - 1; i >= 0; i--) {
             pair = querystring[i].split('=');
             params[d(pair[0])] = d(pair[1]);
