@@ -36,14 +36,12 @@
     var setQueryParams = function() {
 
         var context = angular.element(document.body).injector().get('contextSrv');
-        var operation_id = window.pygmalios.getOperation(context.user.orgId);
         var timeRange = angular.element(document.body).injector().get('timeSrv').timeRange();
 
         [].forEach.call(document.querySelectorAll('iframe'), function(iframe) {
             var src = iframe.getAttribute('src').split('?')[0];
 
             var params = parseQuery(iframe.getAttribute('src'));
-            params.operation_id = operation_id;
             params.start_datetime = new Date(timeRange.from._d).toISOString();
             params.end_datetime = new Date(timeRange.to._d).toISOString();
             var query = buildQuery(params);
