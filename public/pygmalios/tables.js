@@ -17,6 +17,11 @@
         });
     };
 
-    renameTableHeaders();
-    removeTableColumnTime();
+    window.setTimeout(function(){
+        console.log('pygmalios tables script');
+
+        renameTableHeaders();
+        removeTableColumnTime();
+    }, 5000);
+
 })();
