@@ -13,12 +13,6 @@
     <link rel="icon" type="image/png" href="[[.AppSubUrl]]/img/fav32.png">
     <base href="[[.AppSubUrl]]/" />
 
-    <!-- build:js [[.AppSubUrl]]/app/app.js -->
-    <script src="[[.AppSubUrl]]/public/pygmalios/onload.js"></script>
-    <script src="[[.AppSubUrl]]/public/vendor/requirejs/require.js"></script>
-    <script src="[[.AppSubUrl]]/public/app/require_config.js"></script>
-    <!-- endbuild -->
-
     <!-- Custom styles -->
     <style type="text/css">
         body {
@@ -78,16 +72,11 @@
     </style>
 </head>
 
-<body ng-cloak ng-controller="GrafanaCtrl" ng-class="{'sidemenu-open': contextSrv.sidemenu}">
-<div class="sidemenu-canvas">
+<body ng-cloak>
+<grafana-app>
 
-    <aside class="sidemenu-wrapper" ng-if="contextSrv.sidemenu">
-        [[if .User.IsGrafanaAdmin]]
-        <div ng-include="'app/partials/sidemenu.html'"></div>
-        [[else]]
-        <div ng-include="'app/partials/customsidemenu.html'"></div>
-        [[end]]
-        <div ng-include="'app/partials/dashboardmenu.html'"></div>
+    <aside class="sidemenu-wrapper">
+        <sidemenu ng-if="contextSrv.sidemenu"></sidemenu>
     </aside>
 
     <div class="page-alert-list">
@@ -101,25 +90,32 @@
     </div>
 
     <div ng-view class="main-view"></div>
-</div>
-
-</div>
-
+</grafana-app>
 </body>
 
 <script>
     window.grafanaBootData = {
         user:[[.User]],
-        settings: [[.Settings]]
+        settings: [[.Settings]],
+        pluginModules: [[.PluginModules]],
+        mainNavLinks: [[.MainNavLinks]]
     };
 
     // Custom options
     window.grafanaBootData.settings.window_title_prefix = 'Pygmalios Analytics | ';
-
-    require(['app/app'], function (app) {
-        app.boot();
-    })
 </script>
+
+<!-- build:js [[.AppSubUrl]]/app/app.js -->
+<script src="[[.AppSubUrl]]/public/pygmalios/onload.js"></script>
+<!-- endbuild -->
+
+<!-- build:js [[.AppSubUrl]]/public/app/boot.js -->
+<script src="[[.AppSubUrl]]/public/vendor/npm/es6-shim/es6-shim.js"></script>
+<script src="[[.AppSubUrl]]/public/vendor/npm/es6-promise/dist/es6-promise.js"></script>
+<script src="[[.AppSubUrl]]/public/vendor/npm/systemjs/dist/system.src.js"></script>
+<script src="[[.AppSubUrl]]/public/app/system.conf.js"></script>
+<script src="[[.AppSubUrl]]/public/app/boot.js"></script>
+<!-- endbuild -->
 
 [[if .GoogleAnalyticsId]]
 <script>
