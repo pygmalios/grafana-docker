@@ -17,11 +17,24 @@
         });
     };
 
-    window.setTimeout(function(){
-        console.log('pygmalios tables script');
+    angular.element(document).ready(function () {
 
-        renameTableHeaders();
-        removeTableColumnTime();
-    }, 5000);
+        window.setTimeout(function(){
+            console.log('pygmalios tables script');
 
+            renameTableHeaders();
+            removeTableColumnTime();
+        }, 5000);
+
+        var $rootScope = angular.element(document.querySelector('[ng-app],[data-ng-app]') || document).scope();
+
+        $rootScope.onAppEvent('time-range-changed', function(e, time) {
+            console.log('time-range-changed');
+
+            window.setTimeout(function(){
+                renameTableHeaders();
+                removeTableColumnTime();
+            }, 1000);
+        }, $rootScope);
+    });
 })();
