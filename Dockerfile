@@ -4,7 +4,7 @@ RUN apt-get update && apt-get -y install libfontconfig wget adduser openssl ca-c
 
 RUN wget http://grafanarel.s3.amazonaws.com/builds/grafana_2.6.0_amd64.deb
 
-RUN dpkg -i grafana_latest_amd64.deb
+RUN dpkg -i grafana_2.6.0_amd64.deb
 
 EXPOSE 3000
 
