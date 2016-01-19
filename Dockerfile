@@ -18,6 +18,8 @@ ADD public/views/index.html /usr/share/grafana/public/views/index.html
 ADD public/pygmalios/params.js /usr/share/grafana/public/pygmalios/params.js
 ADD public/pygmalios/onload.js /usr/share/grafana/public/pygmalios/onload.js
 
+ADD public/app/core/components/sidemenu/sidemenu.html /usr/share/grafana/public/app/core/components/sidemenu/sidemenu.html
+
 ADD public/img/fav16.png /usr/share/grafana/public/img/fav16.png
 ADD public/img/fav32.png /usr/share/grafana/public/img/fav32.png
 ADD public/img/fav_dark_16.png /usr/share/grafana/public/img/fav_dark_16.png
