@@ -17,6 +17,12 @@
         });
     };
 
+    var removeTableFooter = function() {
+        [].forEach.call(document.querySelectorAll('.table-panel-footer'), function(div) {
+            div.remove();
+        });
+    };
+
     angular.element(document).ready(function () {
 
         window.setTimeout(function(){
@@ -24,6 +30,7 @@
 
             renameTableHeaders();
             removeTableColumnTime();
+            removeTableFooter();
         }, 5000);
 
         var $rootScope = angular.element(document.querySelector('[ng-app],[data-ng-app]') || document).scope();
@@ -34,6 +41,7 @@
             window.setTimeout(function(){
                 renameTableHeaders();
                 removeTableColumnTime();
+                removeTableFooter();
             }, 1000);
         }, $rootScope);
     });
