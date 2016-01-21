@@ -23,6 +23,12 @@
         });
     };
 
+    var removeTableControls = function() {
+        [].forEach.call(document.querySelectorAll('.table-panel-table-header-controls'), function(span) {
+            span.remove();
+        });
+    };
+
     angular.element(document).ready(function () {
 
         window.setTimeout(function(){
@@ -31,6 +37,7 @@
             renameTableHeaders();
             removeTableColumnTime();
             removeTableFooter();
+            removeTableControls();
         }, 5000);
 
         var $rootScope = angular.element(document.querySelector('[ng-app],[data-ng-app]') || document).scope();
@@ -42,6 +49,7 @@
                 renameTableHeaders();
                 removeTableColumnTime();
                 removeTableFooter();
+                removeTableControls();
             }, 1000);
         }, $rootScope);
     });
